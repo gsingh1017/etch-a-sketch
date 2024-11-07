@@ -1,0 +1,13 @@
+/* StyleSheet */
+
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gridSquare {
+    background-color: black;
+    height: 128px;
+    width: 128px;
+}
