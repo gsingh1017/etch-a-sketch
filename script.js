@@ -3,18 +3,28 @@
 
 function createGrid(num) {
 
-    const selectContainer = document.querySelector("#container");
+    // multiply num by itself to get correct number of squares in grid
+    const gridSquareCount = num * num;
+
+    // calculate square size **CHECK**
+    const squareSize = (600 / num);
+
+    const gridContainer = document.querySelector("#container");
 
     // loop creates grid squares based on user input
-    for (let i = 0; i < num; i++) {
+    for (let i = 0; i < gridSquareCount; i++) {
         const createGridSquare = document.createElement("div");
         createGridSquare.classList = "gridSquare";
-        createGridSquare.textContent = i;
-        selectContainer.appendChild(createGridSquare);
+
+        // subtract by 1 to add 0.5px border to box
+        createGridSquare.style.height = (squareSize - 1) + "px";
+        createGridSquare.style.width = (squareSize - 1) + "px";
+
+        gridContainer.appendChild(createGridSquare);
     }
 }
 
-// sets grid shape (16x16 in this example)
+
 // const gridSize = prompt("Pick a number for grid");
 
 createGrid(16);
