@@ -2,10 +2,22 @@
 
 
 body {
-    margin: 0;
+    height: 100vh;
+    margin: 25px 0 0 0;
+}
+
+#buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
 }
 
 #container {
+    display: flex;
+    justify-content: center;
+}
+
+#gridContainer {
     display: flex;
     flex-wrap: wrap;
     max-width: 600px;
