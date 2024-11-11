@@ -1,6 +1,10 @@
 /* Javascript */
 
 
+let gridSize = 16;
+const gridContainer = document.querySelector("#gridContainer");
+
+
 function createGrid(num) {
 
     // multiply num by itself to get correct number of squares in grid
@@ -8,8 +12,6 @@ function createGrid(num) {
 
     // calculate square size (600px is max width/height)
     const squareSize = (600 / num);
-
-    const gridContainer = document.querySelector("#gridContainer");
 
     // loop creates grid squares inside gridContainer based on user input
     for (let i = 0; i < gridSquareCount; i++) {
@@ -22,6 +24,29 @@ function createGrid(num) {
 
         gridContainer.appendChild(createGridSquare);
     }
+}
+
+
+function resetGrid() {
+
+    // remove all children in gridContainer
+    while (gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.firstChild);
+    }
+}
+
+
+function newGridSize() {
+
+    gridSize = prompt("Pick a number between 2 - 100")
+
+    // callback function if input is invalid
+    if ((gridSize > 100) || (gridSize < 2)) {
+        alert("ERROR, try again.");
+        return newGridSize();
+    } 
+
+    return gridSize;
 }
 
 
@@ -41,5 +66,25 @@ function draw() {
 }
 
 
-createGrid(16);
-draw();
+function runGame() {
+    createGrid(gridSize);
+    draw();
+}
+
+
+runGame();
+
+
+const newGridSizeButton = document.querySelector("#gridSize");
+newGridSizeButton.addEventListener("click", () => {
+    newGridSize();
+    resetGrid();
+    runGame();
+})
+
+
+const resetButton = document.querySelector("#reset");
+resetButton.addEventListener("click", () => {
+    resetGrid();
+    runGame();
+});
