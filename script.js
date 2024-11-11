@@ -50,6 +50,20 @@ function getNewGridSize() {
 }
 
 
+function getGridSquareColor() {
+
+    // rgb value can only be between 0 - 255
+    let value = 255;
+
+    // get random value between 0 - 255
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
+
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+
 function draw() {
 
     // NodeList containing all grid squares
@@ -60,7 +74,7 @@ function draw() {
 
         // if mouse hovers over element in the grid square NodeList, color background
         elem.addEventListener("mouseenter", () => {
-            elem.style.backgroundColor = "green";
+            elem.style.backgroundColor = getGridSquareColor();
         });
     }
 }
