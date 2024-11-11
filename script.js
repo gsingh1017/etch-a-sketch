@@ -36,7 +36,7 @@ function resetGrid() {
 }
 
 
-function newGridSize() {
+function getNewGridSize() {
 
     gridSize = prompt("Pick a number between 2 - 100")
 
@@ -55,7 +55,7 @@ function draw() {
     // NodeList containing all grid squares
     const changeSquareColor = document.querySelectorAll(".gridSquare");
 
-    // iterates through each element in the grid square node list
+    // gets each element in the grid square NodeList
     for (let elem of changeSquareColor) {
 
         // if mouse hovers over element in the grid square NodeList, color background
@@ -77,7 +77,7 @@ runGame();
 
 const newGridSizeButton = document.querySelector("#gridSize");
 newGridSizeButton.addEventListener("click", () => {
-    newGridSize();
+    getNewGridSize();
     resetGrid();
     runGame();
 })
