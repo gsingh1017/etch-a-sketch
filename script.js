@@ -48,13 +48,14 @@ function getNewGridSize() {
 
     gridSize = prompt("Pick a number between 2 - 100")
 
-    // callback function if input is invalid
-    if ((gridSize > 100) || (gridSize < 2)) {
+    // returns new gridSize if user input is between 2-100
+    if ((gridSize >= 2) && (gridSize <= 100)) {
+        return gridSize;
+    } 
+    else {
         alert("ERROR, try again.");
         return getNewGridSize();
-    } 
-
-    return gridSize;
+    }
 }
 
 
